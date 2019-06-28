@@ -1,66 +1,40 @@
-    *  {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
     html {
         line-height: 1;
-    }
-
-    p {
-        font-size: 15px;
-        font-size: 1.5rem;    
-        line-height: 1.333333334;
-        margin-bottom: 10px;
-        margin-bottom: 2rem;
-        text-align: justify;
+        border: black 2px solid;
+        padding: 5px;
+        width: 40%;
+        height: 350px;
     }
  
     h1 {
-        text-align: center;
         margin: 20px;
     }
 
-    label  {
-        font-size: 18px;
-        margin: 5px;
-        padding: 0;
-    }
-
     button {
-        width: 150px;
         border: none;
         color: white;
-        background-color: #0087fb;
         margin: 5px;
         border-radius: 5px;
         padding: 12px;
     }
 
-    .textInput {
-        border: none;
-        height: 28px;
-        margin: 5px;
-        border: 1px solid #6B7363;
-        font-size: 1.2em;
-        padding: 5px;
-        width: 95%;
-    }
-
-    .three-columns {
+    .create {
         
-        -webkit-column-count: 3; /* Chrome, Safari, Opera */
-        -moz-column-count: 3; /* Firefox */
-        column-count: 3;
+        width: 220px;
+        background-color: #0087fb;
     }
-
-    .four-columns {
+    .accelerate {
         
-        -webkit-column-count: 4; /* Chrome, Safari, Opera */
-        -moz-column-count: 4; /* Firefox */
-        column-count: 4;
+        width: 220px;
+        background-color: #1ec600;
+    }    
+    .break {
+        
+        width: 220px;
+        background-color: #fb0000;
     }
-    #wheelInfo {
-        display:none;
+    .print {
+        
+        width: 142px;
+        background-color: #6B7363;
     }
