@@ -1,26 +1,91 @@
 "use strict";
-function createRocket(code, numthrusters, thruster1, thruster2, thruster3, thruster4, thruster5, thruster6) {
-    var rocket = new Rocket(code, numthrusters);
-    rocket.addThruster(new Thruster(thruster1));
-    rocket.addThruster(new Thruster(thruster2));
-    rocket.addThruster(new Thruster(thruster3));
-    if (numthrusters == 6) {
-        rocket.addThruster(new Thruster(thruster4));
-        rocket.addThruster(new Thruster(thruster5));
-        rocket.addThruster(new Thruster(thruster6));
-    }
+var rocket1 = "32WESSDS";
+var thrusterspower1 = [10, 30, 80];
+var rocket1velocity = [0, 0, 0];
+var rocket2 = "LDSFJA32";
+var thrusterspower2 = [30, 40, 50, 50, 30, 10];
+var rocket2velocity = [0, 0, 0, 0, 0, 0];
+function createRocket1() {
+    var rocket = new Rocket(rocket1);
     var i = 0;
-    var powers = rocket.thrusters[i].power;
-    i++;
-    while (i < numthrusters) {
-        powers = powers + ',' + rocket.thrusters[i].power;
+    while (i < 3) {
+        rocket.addThruster(new Thruster(thrusterspower1[i]));
         i++;
     }
-    document.getElementById('Rocket1').innerHTML = 'Rocket ' + rocket.code + ' boosters max power: ' + powers;
+    document.getElementById('Rocket1').innerHTML = 'Created rocket 1 with code: ' + rocket.code;
+    document.getElementById('Rocket2').innerHTML = 'Has 3 boosters max power: ' + rocket.thrusters[0].power + ',' + rocket.thrusters[1].power + ',' + rocket.thrusters[2].power;
 }
-function accelerateRocket() {
+function createRocket2() {
+    var rocket = new Rocket(rocket2);
+    var i = 0;
+    while (i < 6) {
+        rocket.addThruster(new Thruster(thrusterspower2[i]));
+        i++;
+    }
+    document.getElementById('Rocket1').innerHTML = 'Created rocket 2 with code: ' + rocket.code;
+    document.getElementById('Rocket2').innerHTML = 'Has 6 boosters max power: ' + rocket.thrusters[0].power + ',' + rocket.thrusters[1].power + ',' + rocket.thrusters[2].power + ',' + rocket.thrusters[3].power + ',' + rocket.thrusters[4].power + ',' + rocket.thrusters[5].power;
 }
-function breakRocket() {
+function accelerateRocket1() {
+    var i = 0;
+    while (i < 3) {
+        if (rocket1velocity[i] == thrusterspower1[i]) {
+            rocket1velocity[i] = rocket1velocity[i];
+        }
+        else {
+            rocket1velocity[i] = rocket1velocity[i] + 10;
+        }
+        i++;
+    }
+    printRocket1();
 }
-function printRocket() {
+function accelerateRocket2() {
+    var i = 0;
+    while (i < 6) {
+        if (rocket2velocity[i] == thrusterspower2[i]) {
+            rocket2velocity[i] = rocket2velocity[i];
+        }
+        else {
+            rocket2velocity[i] = rocket2velocity[i] + 10;
+        }
+        i++;
+    }
+    printRocket2();
+}
+function breakRocket1() {
+    var i = 0;
+    while (i < 3) {
+        if (rocket1velocity[i] == 0) {
+            rocket1velocity[i] = 0;
+        }
+        else {
+            rocket1velocity[i] = rocket1velocity[i] - 10;
+        }
+        i++;
+    }
+    printRocket1();
+}
+function breakRocket2() {
+    var i = 0;
+    while (i < 6) {
+        if (rocket2velocity[i] == 0) {
+            rocket2velocity[i] = 0;
+        }
+        else {
+            rocket2velocity[i] = rocket2velocity[i] - 10;
+        }
+        i++;
+    }
+    printRocket2();
+}
+function printRocket1() {
+    document.getElementById('Rocket1').innerHTML = 'Rocket ' + rocket1 + ' boosters max power: ' + thrusterspower1;
+    document.getElementById('Rocket2').innerHTML = 'Actual velocity: ' + rocket1velocity + ' Total= ' + (rocket1velocity[0] + rocket1velocity[1] + rocket1velocity[2]);
+}
+function printRocket2() {
+    document.getElementById('Rocket1').innerHTML = 'Rocket ' + rocket2 + ' boosters max power: ' + thrusterspower2;
+    document.getElementById('Rocket2').innerHTML = 'Actual velocity: ' + rocket2velocity + ' Total= ' + (rocket2velocity[0] + rocket2velocity[1] + rocket2velocity[2] + rocket2velocity[3] + rocket2velocity[4] + rocket2velocity[5]);
+}
+function printAllRocket() {
+    document.getElementById('Rocket1').innerHTML = 'Rocket ' + rocket1 + ' velocity: ' + rocket1velocity + ' Total= ' + (rocket1velocity[0] + rocket1velocity[1] + rocket1velocity[2]);
+    document.getElementById('Rocket2').innerHTML = 'Rocket ' + rocket2 + ' velocity: ' + rocket2velocity + ' Total= ' + (rocket2velocity[0] + rocket2velocity[1] + rocket2velocity[2] + rocket2velocity[3] + rocket2velocity[4] + rocket2velocity[5]);
 }

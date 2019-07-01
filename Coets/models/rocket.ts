@@ -1,11 +1,9 @@
 class Rocket{
     code:string;
-    numthrusters:number;
     thrusters:Thruster[]=new Array();
     
-    constructor(code:string,numthrusters:number){
+    constructor(code:string){
         this.code=code;
-        this.numthrusters=numthrusters;
     }
     
     addThruster(thruster:Thruster):void{
